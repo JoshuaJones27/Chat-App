@@ -1,0 +1,1 @@
+C:\Users\ossie\Desktop\Chat-App\ChatApp\ChatApp\ChatApp.csproj;x64

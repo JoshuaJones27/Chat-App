@@ -12,21 +12,26 @@ public partial class LoginPage : ContentPage
         return true;
     }
 
-    private async void LoginButton_Clicked(object sender, EventArgs e)
+    private void LoginButton_Clicked(object sender, EventArgs e)
     {
-        if (IsCredentialCorrect(Username.Text, Password.Text))
+        string username = Username.Text;
+        string password = Password.Text;
+
+        if (string.IsNullOrWhiteSpace(username))
         {
-            await SecureStorage.SetAsync("hasAuth", "true");
-            await Shell.Current.GoToAsync("///home");
+            DisplayAlert("Error", "Please enter a username", "OK");
+            return;
         }
-        else
-        {
-            await DisplayAlert("Login failed", "Username or password if invalid", "Try again");
+
+        if(string.IsNullOrWhiteSpace(password))
+        {            
+            DisplayAlert("Error", "Please enter a password", "OK");
+            return;
         }
     }
 
-    bool IsCredentialCorrect(string username, string password)
-    {
-        return Username.Text == "admin" && Password.Text == "1234";
-    }
+    //bool IsCredentialCorrect(string username, string password)
+    //{
+    //    return Username.Text == "admin" && Password.Text == "1234";
+    //}
 }
