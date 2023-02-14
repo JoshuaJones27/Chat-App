@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ChatApp.LoginPage"
+             Title="LoginPage">
+
+    <Grid BackgroundColor="White">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="220"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <!--Design que nem ficou bonito-->
+        <Path Stroke="#000" Data="m171.49999,1.5l456.99999,0l0,179.51778c-228.5,0 -228.5,68.39957 -456.99999,29.53618l0,-209.05396z" Fill="#2e7a9c"/>
+        
+        <StackLayout>
+            <Frame BackgroundColor="SkyBlue" HeightRequest="60" WidthRequest="60" CornerRadius="30" Padding="0" Margin="0,100, 0, 0" HorizontalOptions="Center">
+                <Image Source="https://www.findool.com/images/avatars/avatar.png" Aspect="AspectFill" Margin="0"/>
+            </Frame>
+        </StackLayout>
+
+        <Grid RowSpacing="5" Grid.Row="1" Margin="20, 20, 20, 0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="*"/> 
+            </Grid.RowDefinitions>
+            <Label Grid.Row="1" Text="Bem Vindo!" HorizontalOptions="Center" FontSize="Title" FontAttributes="Bold" Padding="0" Margin="0"/>
+            <Label Grid.Row="2" Text="Login" HorizontalOptions="Center" FontSize="Subtitle"/>
+
+            <StackLayout Grid.Row="3" Orientation="Vertical" HorizontalOptions="CenterAndExpand">
+                <Frame BackgroundColor="Transparent" BorderColor="#2e7a9c" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                    <StackLayout Orientation="Horizontal">
+                        <Frame BackgroundColor="White" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                            <Image Source="https://cdn1.iconfinder.com/data/icons/ui-essential-17/32/UI_Essential_Outline_1_essential-app-ui-avatar-profile-user-account-512.png" Aspect="AspectFill" Margin="0"/>
+                        </Frame>
+                        <Entry x:Name="Username" Text="{Binding Username}" Placeholder="Username" TextColor="Black" FontAttributes="Bold" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+                </Frame>
+                <Frame BackgroundColor="Transparent" BorderColor="#2e7a9c" Margin="0, 15, 0, 0" Padding="0" HorizontalOptions="FillAndExpand" CornerRadius="30">
+                    <StackLayout Orientation="Horizontal">
+                        <Frame BackgroundColor="White" HeightRequest="40" WidthRequest="40" CornerRadius="30" Padding="0" Margin="5">
+                            <Image Source="https://cdn0.iconfinder.com/data/icons/essentials-4/1710/lock-512.png" Aspect="AspectFill" Margin="0"/>
+                        </Frame>
+                        <Entry x:Name="Password" Text="{Binding Password}" Placeholder="Password" TextColor="Black" FontAttributes="Bold" IsPassword="True" VerticalOptions="Center" HorizontalOptions="FillAndExpand"/>
+                    </StackLayout>
+                </Frame>
+
+                <StackLayout Orientation="Horizontal" Margin="0, 10, 0, 0" Padding="0">
+                    <CheckBox IsChecked="False"/>
+                    <Label Text="Manter Sessão Iniciada" TextColor="DarkGrey" FontSize="Small" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                    <Label Text="Esqueci-me da Password" TextColor="DarkBlue" FontAttributes="Bold" HorizontalOptions="EndAndExpand" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+                </StackLayout>
+
+                <Button x:Name="LoginButton" Text="Login" Clicked="LoginButton_Clicked" BackgroundColor="#2e7a9c" TextColor="White" FontAttributes="Bold" CornerRadius="30" WidthRequest="200" Margin="0, 15, 0, 0" Command="{Binding LoginCommand}"/>
+
+            </StackLayout>
+        </Grid>
+        
+    </Grid>
+    
+</ContentPage>
